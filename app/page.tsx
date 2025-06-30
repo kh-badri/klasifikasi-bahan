@@ -1,103 +1,241 @@
+// file: app/page.tsx
+"use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import { Typewriter } from "react-simple-typewriter";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+    <>
+      {/* Bagian Hero */}     {" "}
+      <section className="flex flex-col-reverse md:flex-row items-center justify-between max-w-7xl mx-auto px-6 py-16">
+        {/* Kolom Teks */}       {" "}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="md:w-xl text-center ml-0 md:text-left"
+        >
+          <h1 className="text-4xl md:text-5xl font-bold mb-2 text-blue-600">
+            {" "}
+            <Typewriter
+              words={["Klasifikasi Bahan Pakaian"]}
+              loop={0}
+              cursor
+              cursorStyle=""
+              typeSpeed={120}
+              deleteSpeed={100}
+              delaySpeed={1800}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          </h1>
+          <p className="text-lg md:text-xl text-secondary">Aplikasi ini membantu Anda mengenali jenis bahan pakaian seperti katun, linen, poliester, dan lainnya secara otomatis dan cepat.</p>
+        </motion.div>
+        {/* Kolom Gambar dengan Animasi Melayang */}
+        <motion.div
+          className="md:w-1/2 mb-8 md:mb-0 flex justify-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            y: ["0%", "-4%", "0%"], // Menambahkan gerakan naik-turun
+          }}
+          transition={{
+            duration: 0.8, // Durasi untuk animasi awal (opacity & scale)
+            delay: 0.2,
+            y: {
+              // Properti transisi spesifik untuk sumbu Y
+              duration: 3,
+              repeat: Infinity, // Mengulang animasi tanpa henti
+              repeatType: "loop",
+              ease: "easeInOut",
+            },
+          }}
         >
+                   {" "}
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="/fabric.png"
+            alt="Contoh Bahan Pakaian"
+            width={400}
+            height={400}
+            className="rounded-lg"
+            priority
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+                 {" "}
+        </motion.div>
+             {" "}
+      </section>
+      {/* --- Bagian Baru: Elastisitas Bahan Pakaian --- */}
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-accent text-center">
+            Elastisitas Bahan Pakaian
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Elastisitas Rendah */}
+            <div className="bg-white shadow-lg rounded-lg p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <Image
+                src="/kaintenun.png"
+                alt="Elastisitas Rendah"
+                width={300}
+                height={350}
+                className="mx-auto mb-4 object-cover rounded-md"
+              />
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">
+                Rendah
+              </h3>
+              <p className="text-md text-gray-700">
+                Sulit melar, kembali ke bentuk asli perlahan. Contoh: Linen,
+                Katun (tenun), Denim. Cocok untuk struktur kuat.
+              </p>
+            </div>
+
+            {/* Elastisitas Sedang */}
+            <div className="bg-white shadow-lg rounded-lg p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <Image
+                src="/kainwol.png"
+                alt="Elastisitas Rendah"
+                width={300}
+                height={350}
+                className="mx-auto mb-4 object-cover rounded-md"
+              />
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">
+                Sedang
+              </h3>
+              <p className="text-md text-gray-700">
+                Melar sedikit, nyaman digerakkan. Contoh: Katun (rajut), Wol,
+                Rayon. Fleksibel untuk pakaian sehari-hari.
+              </p>
+            </div>
+
+            {/* Elastisitas Tinggi */}
+            <div className="bg-white shadow-lg rounded-lg p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <Image
+                src="/kainjaring.png"
+                alt="Elastisitas Rendah"
+                width={300}
+                height={350}
+                className="mx-auto mb-4 object-cover rounded-md"
+              />
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">
+                Tinggi
+              </h3>
+              <p className="text-md text-gray-700">
+                Sangat melar, mengikuti bentuk tubuh. Contoh: Spandex/Lycra,
+                Karet, Kain jaring. Ideal untuk olahraga dan pakaian ketat.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+      {/* --- Bagian Baru: Tekstur Bahan Pakaian --- */}
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }} // Delay sedikit lebih lama agar animasi berurutan
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-accent text-center">
+            Tekstur Bahan Pakaian
+          </h2>
+          {/* Menggunakan grid 2 kolom di md ke atas, dan 1 kolom di mobile */}
+          {/* Untuk 5 kolom, kita akan gunakan grid-cols-2 md:grid-cols-5 jika memungkinkan, atau grid-cols-2 md:grid-cols-3 lg:grid-cols-5 untuk responsivitas yang baik */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+            {/* Tekstur Halus */}
+            <div className="bg-white shadow-lg rounded-lg p-4 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <Image
+                src="/kainsutra.png"
+                alt="Tekstur Halus"
+                width={150}
+                height={130}
+                className="mx-auto mb-3 object-cover rounded-md"
+              />
+              <h3 className="text-lg font-semibold mb-1 text-gray-800">
+                Halus
+              </h3>
+              <p className="text-sm text-gray-700">
+                Permukaan licin dan rata. Contoh: Sutra, Katun Sateen. Nyaman di
+                kulit.
+              </p>
+            </div>
+
+            {/* Tekstur Licin */}
+            <div className="bg-white shadow-lg rounded-lg p-4 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <Image
+                src="/kainnilon.png"
+                alt="Tekstur Halus"
+                width={150}
+                height={130}
+                className="mx-auto mb-3 object-cover rounded-md"
+              />
+              <h3 className="text-lg font-semibold mb-1 text-gray-800">
+                Licin
+              </h3>
+              <p className="text-sm text-gray-700">
+                Cenderung tidak menempel, mudah jatuh. Contoh: Poliester, Nilon.
+                Tahan air.
+              </p>
+            </div>
+
+            {/* Tekstur Lembut */}
+            <div className="bg-white shadow-lg rounded-lg p-4 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <Image
+                src="/kainwol2.png"
+                alt="Tekstur Halus"
+                width={150}
+                height={130}
+                className="mx-auto mb-3 object-cover rounded-md"
+              />
+              <h3 className="text-lg font-semibold mb-1 text-gray-800">
+                Lembut
+              </h3>
+              <p className="text-sm text-gray-700">
+                Nyaman disentuh, sering berbulu halus. Contoh: Wol, Fleece,
+                Beludru. Hangat dan empuk.
+              </p>
+            </div>
+
+            {/* Tekstur Berpori */}
+            <div className="bg-white shadow-lg rounded-lg p-4 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <Image
+                src="/kainkatun.png"
+                alt="Tekstur Halus"
+                width={150}
+                height={130}
+                className="mx-auto mb-3 object-cover rounded-md"
+              />
+              <h3 className="text-lg font-semibold mb-1 text-gray-800">
+                Berpori
+              </h3>
+              <p className="text-sm text-gray-700">
+                Ada rongga kecil, sirkulasi udara baik. Contoh: Katun, Linen,
+                Jaring. Menyerap keringat.
+              </p>
+            </div>
+
+            {/* Tekstur Kasar */}
+            <div className="bg-white shadow-lg rounded-lg p-4 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <Image
+                src="/kaindenim.png"
+                alt="Tekstur Halus"
+                width={150}
+                height={130}
+                className="mx-auto mb-3 object-cover rounded-md"
+              />
+              <h3 className="text-lg font-semibold mb-1 text-gray-800">
+                Kasar
+              </h3>
+              <p className="text-sm text-gray-700">
+                Permukaan tidak rata, terasa bertekstur. Contoh: Denim, Goni,
+                Corduroy. Kuat dan tahan lama.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+    </>
   );
 }

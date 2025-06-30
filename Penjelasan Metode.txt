@@ -1,0 +1,31 @@
+
+Analogi: SVM sebagai Penata Busana Cerdas
+Bayangkan Anda memiliki sebuah lemari besar. Tugas Anda adalah menata semua pakaian agar rapi.
+Metode SVM bekerja seperti seorang penata busana profesional yang sangat cerdas.
+Saat menata Kemeja dan Kaos, si penata busana tidak hanya meletakkan satu pembatas tipis. Sebaliknya, ia menciptakan ruang kosong (margin) yang paling lebar di antara tumpukan Kemeja dan tumpukan Kaos. Tujuannya agar tidak ada kesalahan saat mengambil pakaian.
+Pakaian yang posisinya persis di tepi ruang kosong itulah yang disebut Support Vectors. Pakaian-pakaian inilah (misalnya, kemeja flanel yang mirip kaos, atau kaos polo yang mirip kemeja) yang menjadi patokan utama untuk menentukan di mana batas pemisah itu harus diletakkan.
+Saat Anda memberikan pakaian baru, si penata busana hanya perlu melihat pakaian itu jatuh di sisi mana dari "ruang kosong" tersebut untuk langsung tahu apakah itu Kemeja atau Kaos.
+
+
+Cara Kerja Program Python dalam Menjalankan SVM (Alur Singkat)
+Program Anda menjalankan metode SVM dalam 3 langkah utama:
+1. Persiapan Data: Mengubah Sifat Kain menjadi Bahasa Mesin
+Proses: Pertama, program membaca data dari file CSV. Namun, SVM tidak mengerti kata-kata seperti "Halus" atau "Rendah". Maka, program menggunakan OneHotEncoder untuk mengubah setiap sifat kain menjadi kode angka.
+Tujuan: Menerjemahkan semua atribut pakaian ke dalam format angka agar bisa diproses secara matematis.
+2. Pelatihan & Optimasi: Melatih si "Penata Busana"
+Proses: Di sinilah inti dari SVM bekerja. Program menggunakan GridSearchCV untuk secara otomatis "melatih" si penata busana. Ia mencoba puluhan cara menata (kombinasi parameter C dan gamma) untuk menemukan satu cara yang menghasilkan "ruang kosong pemisah" (margin) paling optimal dan akurat.
+Tujuan: Bukan hanya sekadar melatih, tetapi menemukan versi model SVM terbaik dan paling akurat untuk dataset pakaian yang ada.
+3. Prediksi: Mengklasifikasikan Pakaian Baru
+Proses: Setelah model terbaik ditemukan dan disimpan, server API siap digunakan. Saat Anda memasukkan data baru melalui aplikasi:
+Model menerima data tersebut (misal: Ketebalan 1.4, Tekstur Berbutir).
+Ia langsung menempatkan "pakaian baru" ini di dalam "lemari virtual" yang sudah tertata rapi.
+Berdasarkan posisinya, model memberikan label prediksinya (Jaket, Denim).
+Tingkat Keyakinan: Skor ini menunjukkan seberapa "jauh" pakaian baru tersebut dari perbatasan. Jika posisinya sangat jauh di dalam area Jaket, maka tingkat keyakinannya akan tinggi. Jika dekat dengan perbatasan, keyakinannya akan lebih rendah.
+
+
+kami menggunakan Kernel RBF pada model SVM kami. Ini adalah pilihan yang sangat kuat karena memungkinkan model untuk menemukan pola pemisah yang kompleks dan non-linear dalam data pakaian, yang tidak mungkin dilakukan jika hanya menggunakan garis lurus. Ini memberikan fleksibilitas pada model untuk belajar dari hubungan data yang rumit."
+
+Penjelasan Kernel RBF (Radial Basis Function)
+1. Analogi: Dari Pembatas Lurus menjadi Pembatas Fleksibel
+Tanpa Kernel (atau dengan Kernel Linear): Bayangkan si "Penata Busana" hanya bisa menggunakan penggaris lurus untuk membuat sekat di dalam lemari. Ini berfungsi baik jika tumpukan Kemeja dan Kaos terpisah dengan jelas.
+Dengan Kernel RBF: Sekarang, bayangkan si "Penata Busana" bisa menggunakan kawat fleksibel yang bisa dibengkokkan sesuka hati. Jika ada beberapa Kaos yang letaknya menyempil di antara tumpukan Kemeja, ia tidak perlu lagi membuat satu garis lurus yang kaku. Sebagai gantinya, ia bisa membuat sekat melengkung yang dengan cerdas mengelilingi kelompok Kaos dan memisahkannya dari Kemeja.
