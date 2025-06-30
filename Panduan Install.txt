@@ -1,0 +1,10 @@
+1.Pastikan Node JS terinstall (20.17.0 Recommended)
+2.Pastikan Npm Terinstall (10.8.2  Recommended)
+3.Pastikan python Terinstall (3.13.10 Recommended )
+3.Jalankan Perintah npm install pada terminal - tunggu selesai
+4.pada terminal ketik  cd .\backend-klasifikasi\  kemudian akan terarah ke folder tersebut
+5.Jalankan python -m pip install -r requirements.txt  (untuk install module py)
+6.buka terminal arahkan folder: proyek-klasifikasi-sukses , jalankan perintah npm run dev (tanpa close)
+7.buka terminal baru arahkan folder : proyek-klasifikasi-sukses\backend-klasifikasi , jalankan perintah python app.py
+8.buka dibrowser anda http://localhost:3000
+9.selesai
