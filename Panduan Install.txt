@@ -8,3 +8,5 @@
 7.buka terminal baru arahkan folder : proyek-klasifikasi-sukses\backend-klasifikasi , jalankan perintah python app.py
 8.buka dibrowser anda http://localhost:3000
 9.selesai
+
+" Selamat Mencoba"
